@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#include <Wit/Wit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <WitDelegate>
 
 
 @end

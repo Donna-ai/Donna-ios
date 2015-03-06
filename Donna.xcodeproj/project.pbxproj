@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2551D6D0947337B54549ADC6 /* libPods-Donna.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43032C3F6C224470BC3B62E6 /* libPods-Donna.a */; };
 		771171AD1AA9445B002F7856 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 771171AC1AA9445B002F7856 /* main.m */; };
 		771171B01AA9445B002F7856 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771171AF1AA9445B002F7856 /* AppDelegate.m */; };
 		771171B31AA9445B002F7856 /* Donna.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 771171B11AA9445B002F7856 /* Donna.xcdatamodeld */; };
@@ -15,6 +16,7 @@
 		771171BB1AA9445B002F7856 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 771171BA1AA9445B002F7856 /* Images.xcassets */; };
 		771171BE1AA9445B002F7856 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771171BC1AA9445B002F7856 /* LaunchScreen.xib */; };
 		771171CA1AA9445B002F7856 /* DonnaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 771171C91AA9445B002F7856 /* DonnaTests.m */; };
+		771171D41AA94E0E002F7856 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771171D31AA94E0E002F7856 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43032C3F6C224470BC3B62E6 /* libPods-Donna.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Donna.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		771171A71AA9445B002F7856 /* Donna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		771171AB1AA9445B002F7856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		771171AC1AA9445B002F7856 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,6 +45,9 @@
 		771171C31AA9445B002F7856 /* DonnaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DonnaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		771171C81AA9445B002F7856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		771171C91AA9445B002F7856 /* DonnaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonnaTests.m; sourceTree = "<group>"; };
+		771171D31AA94E0E002F7856 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		871BE5FBA4CCBBF35A053B1A /* Pods-Donna.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donna.release.xcconfig"; path = "Pods/Target Support Files/Pods-Donna/Pods-Donna.release.xcconfig"; sourceTree = "<group>"; };
+		F0E1C47FAA28B185F069E2EE /* Pods-Donna.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donna.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Donna/Pods-Donna.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771171D41AA94E0E002F7856 /* AVFoundation.framework in Frameworks */,
+				2551D6D0947337B54549ADC6 /* libPods-Donna.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +70,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71FCB342CF508847C51B7024 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				771171D31AA94E0E002F7856 /* AVFoundation.framework */,
+				43032C3F6C224470BC3B62E6 /* libPods-Donna.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7711719E1AA9445B002F7856 = {
 			isa = PBXGroup;
 			children = (
 				771171A91AA9445B002F7856 /* Donna */,
 				771171C61AA9445B002F7856 /* DonnaTests */,
 				771171A81AA9445B002F7856 /* Products */,
+				A2587B7192E383F0AB98A597 /* Pods */,
+				71FCB342CF508847C51B7024 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +141,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A2587B7192E383F0AB98A597 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0E1C47FAA28B185F069E2EE /* Pods-Donna.debug.xcconfig */,
+				871BE5FBA4CCBBF35A053B1A /* Pods-Donna.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 771171CD1AA9445B002F7856 /* Build configuration list for PBXNativeTarget "Donna" */;
 			buildPhases = (
+				E690072D5622F33C231328D0 /* Check Pods Manifest.lock */,
 				771171A31AA9445B002F7856 /* Sources */,
 				771171A41AA9445B002F7856 /* Frameworks */,
 				771171A51AA9445B002F7856 /* Resources */,
+				977B56D067A0628ADE9FA50C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +246,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		977B56D067A0628ADE9FA50C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Donna/Pods-Donna-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E690072D5622F33C231328D0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		771171A31AA9445B002F7856 /* Sources */ = {
@@ -347,6 +410,7 @@
 		};
 		771171CE1AA9445B002F7856 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0E1C47FAA28B185F069E2EE /* Pods-Donna.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Donna/Info.plist;
@@ -357,6 +421,7 @@
 		};
 		771171CF1AA9445B002F7856 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 871BE5FBA4CCBBF35A053B1A /* Pods-Donna.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Donna/Info.plist;
@@ -418,6 +483,7 @@
 				771171CF1AA9445B002F7856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		771171D01AA9445B002F7856 /* Build configuration list for PBXNativeTarget "DonnaTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +492,7 @@
 				771171D21AA9445B002F7856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

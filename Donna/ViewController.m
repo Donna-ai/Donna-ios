@@ -47,10 +47,12 @@
 
 - (void) witDidStartRecording {
     self.listeningLabel.text = @"Listening...";
+    [serverUrlTextField resignFirstResponder];
 }
 
 - (void) witDidStopRecording {
     self.listeningLabel.text = @"Not Listening.";
+    [serverUrlTextField resignFirstResponder];
 }
 
 - (void)witDidGraspIntent:(NSArray *)outcomes messageId:(NSString *)messageId customData:(id) customData error:(NSError*)e {
@@ -187,6 +189,11 @@
     NSDictionary *torrent = [torrents objectAtIndex:indexPath.row];
     [self downloadTorrent:torrent];
     
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    return [textField resignFirstResponder];
 }
 
 @end

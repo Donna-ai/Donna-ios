@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *queryLabel;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *listeningLabel;
+@property (strong, nonatomic) IBOutlet UITextField *serverUrlTextField;
 
 @property (strong, nonatomic) NSMutableArray *torrents;
 

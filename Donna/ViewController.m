@@ -22,6 +22,7 @@
 @synthesize queryLabel;
 @synthesize tableView;
 @synthesize listeningLabel;
+@synthesize serverUrlTextField;
 
 @synthesize torrents;
 
@@ -81,6 +82,11 @@
         NSNumber *episode = (NSNumber *)[(NSDictionary *)[(NSArray *)[entities objectForKey:@"episode"] objectAtIndex:0] objectForKey:@"value"];
         NSString *query = [NSString stringWithFormat:@"%@ S%02dE%02d", tvShow, season.intValue, episode.intValue];
         [self searchForTorrents:query];
+    } else if ([intent isEqualToString:@"download_torrent_selection"]) {
+        NSNumber *selection = (NSNumber *)[(NSDictionary *)[(NSArray *)[entities objectForKey:@"selection"] objectAtIndex:0] objectForKey:@"value"];
+        NSDictionary *torrent = [torrents objectAtIndex:selection.intValue];
+        [self downloadTorrent:torrent];
+
     }
 
     
@@ -97,7 +103,7 @@
     NSLog(@"Send request to Donna: %@", query);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *donnaBaseUrl = @"http://192.168.1.136:8000";
+    NSString *donnaBaseUrl = serverUrlTextField.text;
     NSString *requestUrl = [NSString stringWithFormat:@"%@/api/%@", donnaBaseUrl, @"torrents"];
     NSDictionary *params = @{
                              @"query": query
@@ -115,13 +121,40 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"Error: %@", error);
-        [self speak:@"An error occured."];
+        [self speak:@"An error occured trying to search"];
     
     }];
     
-    [self speak:@"I'll take a look."];
+    [self speak:@"I'll take a look"];
     
 }
+
+- (void) downloadTorrent:(NSDictionary *)torrent {
+    
+    NSLog(@"Torrent: %@", torrent);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *donnaBaseUrl = serverUrlTextField.text;
+    NSString *requestUrl = [NSString stringWithFormat:@"%@/api/%@", donnaBaseUrl, @"transmission"];
+    NSDictionary *params = @{
+                             @"url": [torrent objectForKey:@"torrentUrl"]
+                             };
+    [manager POST:requestUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"JSON: %@", responseObject);
+        [self speak:@"It's downloading"];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+        [self speak:@"An error occured trying to download"];
+        
+    }];
+    
+    [self speak:@"I'll download that now"];
+
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -149,5 +182,11 @@
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDictionary *torrent = [torrents objectAtIndex:indexPath.row];
+    [self downloadTorrent:torrent];
+    
+}
 
 @end

@@ -3,6 +3,7 @@
 
 target 'Donna' do
     pod 'Wit', '~> 4.0.0'
+    pod 'AFNetworking', '~> 2.5'
 end
 
 target 'DonnaTests' do
